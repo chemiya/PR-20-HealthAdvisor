@@ -1,0 +1,31 @@
+CREATE TABLE usuario(
+   idUsuario INT auto_increment NOT NULL,
+   username VARCHAR (100),
+   password VARCHAR(100),
+   email VARCHAR(100) ,
+   fechaNacimiento DATE,       
+   PRIMARY KEY (idUsuario)
+);
+
+
+CREATE TABLE medicina(
+   id INT auto_increment NOT NULL,
+   nombre VARCHAR (200),
+   dosis VARCHAR(200), 
+   idUsuario int,
+   foto varchar(100),
+   FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),   
+   PRIMARY KEY (id)
+);
+
+CREATE TABLE citamedica(
+   id  INT auto_increment NOT NULL,
+   lugar VARCHAR (200),
+   fecha date,
+   hora VARCHAR(20) ,  
+   comentario VARCHAR(500) ,
+   estado char(200),
+   idUsuario int,
+   FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),   
+   PRIMARY KEY (id)
+);
